@@ -57,7 +57,7 @@ kable(charsheet) %>%
 ```
 
 
-***
+<hr class="new">
 
 **Level**: 2
 
@@ -75,7 +75,7 @@ kable(charsheet) %>%
 
 A **perception check** is d20 + WIS modifier (WIS check); roll for **initiative** is d20 + DEX modifier (DEX check).
 
-***
+<hr class="new">
 
 ## Skills
 - Acrobatics [DEX]
@@ -106,7 +106,7 @@ You have proficiency with artisan’s tools (tinker’s tools). Using those tool
 - **Gnome Cunning**: You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.
 
 
-***
+<hr class="new">
 
 # Current Equipment
 
@@ -148,6 +148,8 @@ Because of the time required to load this weapon, you can fire only one piece of
 <details><summary>Improvised Weapons</summary>
 If a character uses a ranged weapon to make a melee attack, or throws a melee weapon that does not have the thrown property, it deals 1d4 damage. An improvised thrown weapon has a normal range of 20 feet and a long range of 60 feet.</details>
 
+<hr class="new">
+
 ## Belongings
 
 ### Travel: Explorer's Pack
@@ -177,8 +179,8 @@ If a character uses a ranged weapon to make a melee attack, or throws a melee we
 - Studded armor (replaced leather armor, equipped)
 
 
+<hr class="new">
 
-***
 
 # Fighting
 
@@ -196,7 +198,7 @@ Starting at 2nd level, you can push yourself beyond your normal limits for a mom
 
 Once you use this feature, you must finish a short or long rest before you can use it again. Starting at 17th level, you can use it twice before a rest, but only once on the same turn.
 
-***
+<hr class="new">
 
 # Background
 
