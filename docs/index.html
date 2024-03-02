@@ -1790,8 +1790,8 @@ Modifier
 </tbody>
 </table>
 <hr class="new">
-<p><strong>Level</strong>: 2</p>
-<p><strong>Hit points</strong>: 17</p>
+<p><strong>Level</strong>: 3</p>
+<p><strong>Hit points</strong>: 21</p>
 <ul>
 <li>Number of hit dice: 1 d10 per fighter level</li>
 </ul>
@@ -1802,9 +1802,8 @@ Modifier
 WIS, CHA</li>
 </ul>
 <p><strong>Armor class</strong>: 15</p>
-<p>A <strong>perception check</strong> is d20 + WIS modifier (WIS
-check); roll for <strong>initiative</strong> is d20 + DEX modifier (DEX
-check).</p>
+<p><strong>Perception check</strong> is d20 + WIS modifier (WIS check);
+<strong>initiative</strong> is d20 + DEX modifier (DEX check).</p>
 <hr class="new">
 <div id="skills" class="section level2">
 <h2>Skills</h2>
@@ -1932,6 +1931,23 @@ Martial melee weapon
 </tr>
 <tr>
 <td style="text-align:left;">
+Scimitar
+</td>
+<td style="text-align:left;">
+1d6 slashing
+</td>
+<td style="text-align:left;">
+3 lb.
+</td>
+<td style="text-align:left;">
+Finesse, light
+</td>
+<td style="text-align:left;">
+Martial melee weapon
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 Dagger
 </td>
 <td style="text-align:left;">
@@ -1966,16 +1982,16 @@ Magic dagger
 </tr>
 <tr>
 <td style="text-align:left;">
-Crossbow, hand
+Crossbow, light
 </td>
 <td style="text-align:left;">
-1d6 piercing
+1d8 piercing
 </td>
 <td style="text-align:left;">
-3 lb.
+5 lb.
 </td>
 <td style="text-align:left;">
-Ammunition, range (30/120), light, loading
+Ammunition, range (80/320), loading, two-handed
 </td>
 <td style="text-align:left;">
 Martial ranged weapon
@@ -2062,6 +2078,13 @@ normally make.
 </details>
 <details>
 <summary>
+Two-Handed
+</summary>
+This weapon requires two hands to use. This property is relevant only
+when you attack with the weapon, not when you simply hold it.
+</details>
+<details>
+<summary>
 Improvised Weapons
 </summary>
 If a character uses a ranged weapon to make a melee attack, or throws a
@@ -2090,7 +2113,7 @@ long range of 60 feet.
 <div id="personal-excluding-equipped" class="section level3">
 <h3>Personal (excluding equipped)</h3>
 <ul>
-<li>80 gold</li>
+<li>68 gold</li>
 <li>Leather armor (original, unequipped)</li>
 <li>Treasure map with an <strong>X</strong> labeled “something here
 should stay buried” in Dwarven</li>
@@ -2100,6 +2123,17 @@ should stay buried” in Dwarven</li>
 meal</li>
 <li>Works 10x/day, recharges 1d6+4 charges toward max each day at
 dawn)</li>
+</ul></li>
+<li>Hat of vermin
+<ul>
+<li>Use an action to speak a command that summons either a bat, frog, or
+rat</li>
+<li>The animal disappears after 1 hour or after its HP reaches 0</li>
+<li>The hat has 3 charges that refresh daily at dawn</li>
+</ul></li>
+<li>Boots of false tracks
+<ul>
+<li>Leaves tracks like another humanoid of my size</li>
 </ul></li>
 </ul>
 <hr class="new">
@@ -2123,13 +2157,50 @@ again.</p>
 </div>
 <div id="action-surge" class="section level3">
 <h3>Action Surge</h3>
-<p>Starting at 2nd level, you can push yourself beyond your normal
-limits for a moment. On your turn, you can take one additional
-action.</p>
-<p>Once you use this feature, you must finish a short or long rest
-before you can use it again. Starting at 17th level, you can use it
-twice before a rest, but only once on the same turn.</p>
+<p>You can push yourself beyond your normal limits for a moment. On your
+turn, you can take one additional action. Once you use this feature, you
+must finish a short or long rest before you can use it again. Starting
+at 17th level, you can use it twice before a rest, but only once on the
+same turn.</p>
+</div>
+<div id="martial-archetype-battle-master" class="section level2">
+<h2>Martial Archetype: Battle Master</h2>
+<p>You know three maneuvers of your choice; you can use only one
+maneuver per attack.</p>
+<p><strong>Superiority Dice</strong>. You have four superiority dice,
+which are d8s. A superiority die is expended when you use it. You regain
+all of your expended superiority dice when you finish a short or long
+rest. You gain another superiority die at 7th level and one more at 15th
+level.</p>
+<p><strong>Saving Throws</strong>. Some of your maneuvers require your
+target to make a saving throw to resist the maneuver’s effects. The
+saving throw DC is calculated as follows:</p>
+<ul>
+<li>Maneuver save DC = 8 + your proficiency bonus + your Strength or
+Dexterity modifier (your choice)</li>
+</ul>
+<div id="parry" class="section level3">
+<h3>Parry</h3>
+<p>When another creature damages you with a melee attack, you can use
+your reaction and expend one superiority die to reduce the damage by the
+number you roll on your superiority die + your Dexterity modifier.</p>
+</div>
+<div id="trip-attack" class="section level3">
+<h3>Trip Attack</h3>
+<p>When you hit a creature with a weapon attack, you can expend one
+superiority die to attempt to knock the target down. You add the
+superiority die to the attack’s damage roll, and if the target is Large
+or smaller, it must make a Strength saving throw. On a failed save, you
+knock the target prone.</p>
+</div>
+<div id="quick-toss" class="section level3">
+<h3>Quick Toss</h3>
+<p>As a bonus action, you can expend one superiority die and make a
+ranged attack with a weapon that has the thrown property. You can draw
+the weapon as part of making this attack. If you hit, add the
+superiority die to the weapon’s damage roll.</p>
 <hr class="new">
+</div>
 </div>
 </div>
 <div id="background" class="section level1">
@@ -2243,6 +2314,32 @@ voice as she can manage, and the door opens again and the prisoners
 escape. The crew manages to get away while seemingly innocent.</p>
 <p>Muppet still has not heard from her pirate crew… But she is not
 thinking about that.</p>
+</details>
+<details>
+<summary>
+2/25/24: All Hail Frogphet
+</summary>
+<p>The crew miraculously faces no suspicion for the prison break, but
+learns from the Duke that a weapons smuggler escaped, one that they fear
+is selling weapons to the community of lizard people that live across
+the marsh. The crew is tasked with going to talk to the lizard people,
+guided by a bigoted human guard named Clayton.</p>
+<p>While still in town, they go shopping, and Muppet switches out
+several of her weapons and also buys a hat of vermin and a pair of boots
+of false tracks. Wendell kisses a frog. Wendell x Frog Benediction 200k
+slowburn.</p>
+<p>They go through the marsh guided by Clayton that day. They run into a
+community of potentially hostile frog people, but Muppet uses her hat of
+vermin to summon three frogs and present them to the frog people,
+convincing them that she is a frogphet and to let her (and her company)
+pass without incident. They also face a quicksand pit, which they cross
+by various hempen rope maneuvers (Muppet almost dies!).</p>
+Once at the lizard people’s community, Muppet does her best to befriend
+the lizard kids, but they’re kind of sensitive, and there’s also a
+serious language barrier. Meanwhile, Eleza and Wendell try to negotiate
+with the adults - Eleza uses her Draconic language skills. They finish
+the session talking to a lizard minister in the temple dedicated to the
+lizard people’s god.
 </details>
 </div>
 </div>

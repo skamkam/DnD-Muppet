@@ -59,9 +59,9 @@ kable(charsheet) %>%
 
 <hr class="new">
 
-**Level**: 2
+**Level**: 3
 
-**Hit points**: 17
+**Hit points**: 21
 
 - Number of hit dice: 1 d10 per fighter level
 
@@ -73,7 +73,7 @@ kable(charsheet) %>%
 
 **Armor class**: 15
 
-A **perception check** is d20 + WIS modifier (WIS check); roll for **initiative** is d20 + DEX modifier (DEX check).
+**Perception check** is d20 + WIS modifier (WIS check); **initiative** is d20 + DEX modifier (DEX check).
 
 <hr class="new">
 
@@ -113,13 +113,6 @@ You have proficiency with artisan’s tools (tinker’s tools). Using those tool
 ## Weapons/Armor
 
 ```{r}
-#Item <- c("Studded leather armor", "Dagger", "Crossbow, hand", "Rapier", "Crossbow bolts")
-#Damage <- c("N/A", "1d4 piercing", "1d6 piercing", "1d8 piercing", "N/A")
-#Weight <- c("13 lb.", "1 lb.", "3 lb.", "2 lb.", "N/A")
-#Properties <- c("12 + DEX modifier", "Finesse, light, thrown (20/60)", "Ammunition, range (30/120), light, loading", "Finesse", "39 bolts")
-#Type <- c("Light armor", "Simple melee weapon", "Martial ranged weapon", "Martial melee weapon", "Ammunition")
-
-
 
 studded_armor <- data.frame(name="Studded leather armor", damage="N/A", weight="13 lb.",
                      prop="12 + DEX modifier", type="Light armor")
@@ -127,19 +120,22 @@ studded_armor <- data.frame(name="Studded leather armor", damage="N/A", weight="
 rapier <- data.frame(name="Rapier", damage="1d8 piercing", weight="2 lb.", prop="Finesse",
                      type="Martial melee weapon")
 
+scimitar <- data.frame(name="Scimitar", damage="1d6 slashing", weight="3 lb.", prop="Finesse, 
+                       light", type="Martial melee weapon")
+
 dagger <- data.frame(name="Dagger", damage="1d4 piercing", weight="1 lb.", 
               prop="Finesse, light, thrown (20/60)", type="Simple melee weapon")
 
 magic_dagger <- data.frame(name="Magic dagger", damage='""', weight='""', prop='"" and +1 attack', 
                            type='""')
 
-crossbow <- data.frame(name="Crossbow, hand", damage="1d6 piercing", weight="3 lb.",
-                 prop="Ammunition, range (30/120), light, loading", type="Martial ranged weapon")
+crossbow <- data.frame(name="Crossbow, light", damage="1d8 piercing", weight="5 lb.",
+                 prop="Ammunition, range (80/320), loading, two-handed", type="Martial ranged weapon")
 
 crossbow_bolts <- data.frame(name="Crossbow bolts", damage="N/A", weight="N/A", prop="39 bolts", 
                              type="Ammunition")
 
-weaparmor <- rbind(studded_armor, rapier, dagger, magic_dagger, crossbow, crossbow_bolts) %>% 
+weaparmor <- rbind(studded_armor, rapier, scimitar, dagger, magic_dagger, crossbow, crossbow_bolts) %>% 
   rename(Name=name, Damage=damage, Weight=weight, Properties=prop, Type=type)
 
 kable(weaparmor) %>% 
@@ -166,6 +162,9 @@ You can use a weapon that has the ammunition property to make a ranged attack on
 <details><summary>Loading</summary>
 Because of the time required to load this weapon, you can fire only one piece of ammunition from it when you use an action, bonus action, or reaction to fire it, regardless of the number of attacks you can normally make.</details>
 
+<details><summary>Two-Handed</summary>
+This weapon requires two hands to use. This property is relevant only when you attack with the weapon, not when you simply hold it.</details>
+
 <details><summary>Improvised Weapons</summary>
 If a character uses a ranged weapon to make a melee attack, or throws a melee weapon that does not have the thrown property, it deals 1d4 damage. An improvised thrown weapon has a normal range of 20 feet and a long range of 60 feet.</details>
 
@@ -186,12 +185,18 @@ If a character uses a ranged weapon to make a melee attack, or throws a melee we
 
 ### Personal (excluding equipped)
 
-- 80 gold
+- 68 gold
 - Leather armor (original, unequipped)
 - Treasure map with an **X** labeled "something here should stay buried" in Dwarven
 - Handy spice pouch
     - Magically gives you a pinch of however much spice you need for a meal
     - Works 10x/day, recharges 1d6+4 charges toward max each day at dawn)
+- Hat of vermin
+    - Use an action to speak a command that summons either a bat, frog, or rat
+    - The animal disappears after 1 hour or after its HP reaches 0
+    - The hat has 3 charges that refresh daily at dawn
+- Boots of false tracks
+    - Leaves tracks like another humanoid of my size
 
 
 <hr class="new">
@@ -209,9 +214,31 @@ You have a limited well of stamina that you can draw on to protect yourself from
 
 ### Action Surge
 
-Starting at 2nd level, you can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action.
+You can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action. Once you use this feature, you must finish a short or long rest before you can use it again. Starting at 17th level, you can use it twice before a rest, but only once on the same turn.
 
-Once you use this feature, you must finish a short or long rest before you can use it again. Starting at 17th level, you can use it twice before a rest, but only once on the same turn.
+## Martial Archetype: Battle Master
+
+You know three maneuvers of your choice; you can use only one maneuver per attack.
+
+**Superiority Dice**. You have four superiority dice, which are d8s. A superiority die is expended when you use it. You regain all of your expended superiority dice when you finish a short or long rest. You gain another superiority die at 7th level and one more at 15th level.
+
+**Saving Throws**. Some of your maneuvers require your target to make a saving throw to resist the maneuver's effects. The saving throw DC is calculated as follows:
+
+- Maneuver save DC = 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice)
+
+### Parry
+
+When another creature damages you with a melee attack, you can use your reaction and expend one superiority die to reduce the damage by the number you roll on your superiority die + your Dexterity modifier.
+
+### Trip Attack
+
+When you hit a creature with a weapon attack, you can expend one superiority die to attempt to knock the target down. You add the superiority die to the attack's damage roll, and if the target is Large or smaller, it must make a Strength saving throw. On a failed save, you knock the target prone.
+
+### Quick Toss
+
+As a bonus action, you can expend one superiority die and make a ranged attack with a weapon that has the thrown property. You can draw the weapon as part of making this attack. If you hit, add the superiority die to the weapon's damage roll.
+
+
 
 <hr class="new">
 
@@ -262,4 +289,17 @@ After a couple unsuccessful attempts at breaking them out, Muppet causes a distr
 
 Muppet still has not heard from her pirate crew... But she is not thinking about that.
 
+</details>
+
+
+<details><summary>
+2/25/24: All Hail Frogphet
+</summary>
+The crew miraculously faces no suspicion for the prison break, but learns from the Duke that a weapons smuggler escaped, one that they fear is selling weapons to the community of lizard people that live across the marsh. The crew is tasked with going to talk to the lizard people, guided by a bigoted human guard named Clayton.
+
+While still in town, they go shopping, and Muppet switches out several of her weapons and also buys a hat of vermin and a pair of boots of false tracks. Wendell kisses a frog. Wendell x Frog Benediction 200k slowburn.
+
+They go through the marsh guided by Clayton that day. They run into a community of potentially hostile frog people, but Muppet uses her hat of vermin to summon three frogs and present them to the frog people, convincing them that she is a frogphet and to let her (and her company) pass without incident. They also face a quicksand pit, which they cross by various hempen rope maneuvers (Muppet almost dies!).
+
+Once at the lizard people's community, Muppet does her best to befriend the lizard kids, but they're kind of sensitive, and there's also a serious language barrier. Meanwhile, Eleza and Wendell try to negotiate with the adults - Eleza uses her Draconic language skills. They finish the session talking to a lizard minister in the temple dedicated to the lizard people's god.
 </details>
